@@ -4,22 +4,18 @@ pipeline {
     stages {
       stage('build') {
         steps {
-          git url: 'https://github.com/JonaxelN/AngularJenkinsTest.git', branch: 'main'
-          sh '''
-            apt-get install -y npm
-            npm run build
-          '''
+         echo 'Building'
         }
       }
-      stage('Tar') {
+      stage('Export') {
         steps {
           //sh 'docker build -t luidasa/angular-app-jenkins:${VERSION}.${BUILD_NUMBER} .'
-          sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
+          echo 'exporting'
         }
       }
-      stage('Gracias Totales') {
+      stage('Finish') {
       steps {
-        echo 'Gracias Totales'
+        echo 'Finish'
       }
     }
     }
