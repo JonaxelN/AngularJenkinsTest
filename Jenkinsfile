@@ -4,7 +4,7 @@ pipeline {
       stage('build') {
         steps {
           git url: 'https://github.com/JonaxelN/AngularJenkinsTest.git', branch: 'main'
-          sh '/home/vagrant/.nvm/versions/node/v20.14.0/bin/ng build --prod'
+          sh 'ng build'
         }
       }
       stage('Tar') {
