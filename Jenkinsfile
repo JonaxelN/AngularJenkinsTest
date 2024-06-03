@@ -5,7 +5,10 @@ pipeline {
       stage('build') {
         steps {
           git url: 'https://github.com/JonaxelN/AngularJenkinsTest.git', branch: 'main'
-          sh 'npm run build'
+          sh '''
+            apt-get install -y npm
+            npm run build
+          '''
         }
       }
       stage('Tar') {
